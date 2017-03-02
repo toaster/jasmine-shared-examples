@@ -1,6 +1,6 @@
 {
   "name": "code_cowboy-jasmine-shared-examples",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "An implementation of the shared examples pattern for jasmine on node.js.",
   "main": "index.js",
   "scripts": {

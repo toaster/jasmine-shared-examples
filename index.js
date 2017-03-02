@@ -1,6 +1,6 @@
 'use strict';
 
-exports = {
+module.exports = {
   sharedExamplesFor: (groupName, examples) => {
     if (typeof jasmine.sharedExamples === "undefined") { jasmine.sharedExamples = {}; }
 
@@ -10,7 +10,7 @@ exports = {
     if (typeof examples !== "function") { throw "Examples have to be a function."; }
 
     jasmine.sharedExamples[groupName] = () => { describe(groupName, examples); };
-  };
+  },
 
   itBehavesLike: function() {
     var args = [].slice.call(arguments);
@@ -26,5 +26,5 @@ exports = {
       args.push(context);
     }
     jasmine.sharedExamples[groupName].apply(null, args);
-  };
+  },
 };
