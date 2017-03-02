@@ -1,6 +1,6 @@
 {
   "name": "code_cowboy-jasmine-shared-examples",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "An implementation of the shared examples pattern for jasmine on node.js.",
   "main": "index.js",
   "scripts": {
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/toaster/jasmine-shared-examples/issues"
   },
-  "homepage": "https://github.com/toaster/jasmine-shared-examples#readme"
+  "homepage": "https://github.com/toaster/jasmine-shared-examples#readme",
+  "dependencies": {
+    "jasmine": "^2.5.3"
+  }
 }
