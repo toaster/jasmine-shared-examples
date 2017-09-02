@@ -9,22 +9,21 @@ module.exports = {
     }
     if (typeof examples !== "function") { throw "Examples have to be a function."; }
 
-    jasmine.sharedExamples[groupName] = () => { describe(groupName, examples); };
+    jasmine.sharedExamples[groupName] = examples;
   },
 
-  itBehavesLike: function() {
-    var args = [].slice.call(arguments);
-    var groupName = args.shift();
+  itBehavesLike: (groupName, ...args) => {
     if (!jasmine.sharedExamples[groupName]) {
       throw "Example group “" + groupName + "” not defined.";
     }
 
-    var context = args.pop();
-    if (typeof context === "function") {
-      context();
-    } else if (typeof context !== "undefined") {
-      args.push(context);
+    var contextFunction;
+    if (typeof args[args.length - 1] === "function") {
+      contextFunction = args.pop();
     }
-    jasmine.sharedExamples[groupName].apply(null, args);
+    describe(groupName, () => {
+      if (contextFunction) { contextFunction() };
+      jasmine.sharedExamples[groupName].apply(null, args);
+    });
   },
 };
