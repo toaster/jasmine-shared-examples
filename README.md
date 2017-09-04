@@ -2,6 +2,12 @@
 
 My implementation of the shared examples pattern for jasmine on node.js.
 
+## How it works
+
+It inserts (and executes) any function defined by `shared_examples_for` at the point where
+`it_behaves_like` is called. The shared examples definition function is wrapped by a `describe` with
+the name of the shared examples used for the description ob the `describe`.
+
 
 ## Installation
 
